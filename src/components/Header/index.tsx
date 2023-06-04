@@ -1,15 +1,26 @@
-import { Container, Logo, UserIcon } from './styles';
 
-import perfil from '@assets/perfil.png';
-import logo from '@assets/logo.png';
+import { TouchableOpacityProps, View } from 'react-native';
 
-export function Header() {
-    
+import { Button, Container, HeaderType, Icon, Title, } from './styles';
+
+type Props = TouchableOpacityProps & {
+	title: string;
+	type?: HeaderType;
+}
+
+export function Header({ type = 'DEFAULT', title, ...rest } : Props) {
+
 	return (
-		<Container>
-			<Logo source={ logo } />
+		<Container type={ type }>
+			<Button { ...rest }>
+				<Icon />
+			</Button>
 
-			<UserIcon source={ perfil } />
+			<Title>
+                { title }
+            </Title>
+
+			<View style={{ width: 24 }} />
 		</Container>
 	);
 }

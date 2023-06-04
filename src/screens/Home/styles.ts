@@ -1,13 +1,14 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { css } from 'styled-components';
-import styled from 'styled-components/native';
+
+import { LinearGradient, LinearGradientProps } from 'expo-linear-gradient';
+
+import styled, { css } from 'styled-components/native';
 
 export const Container = styled(SafeAreaView)`
 	flex: 1;
 	padding: 24px;
 	padding-bottom: 0px;
 	background-color: ${({ theme }) => theme.COLORS.GRAY_100};
-	margin-top: 50px;
 `;
 
 export const Title = styled.Text`
@@ -39,4 +40,11 @@ export const NoMealsMessage = styled.Text`
 		font-size: ${theme.FONT_SIZE.BODY.SM}px;
 		color: ${theme.COLORS.GRAY_700};
 	`};
+`;
+
+export const Gradient = styled(LinearGradient).attrs(({ theme }) => ({
+	colors: [theme.COLORS.GRAY_700, 'rgba(250, 250, 250, 0)'],
+	locations: [0.6, 1]
+} as LinearGradientProps))`
+	flex: 1;
 `;
